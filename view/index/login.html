@@ -34,6 +34,7 @@
     </div>
     
     <script src="/public/assets/jquery/jquery.min.js"></script>
+    <script src="/public/assets/jquery-cookie/jquery.cookie.js"></script>
     <script src="/public/assets/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript">
     $('#loginForm').submit(function(){
@@ -46,6 +47,10 @@
             dataType : 'json',
             success : function(data){
                 if(data.code == 200){
+                    // console.log(data.result);
+                    var logInfo = JSON.stringify(data.result);
+                    // 实现cookie数据的跨页面共享
+                    $.cookie('logInfo',logInfo,{path : '/'});
                     location.href = '/index/index'
                 }
             },

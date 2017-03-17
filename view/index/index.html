@@ -178,6 +178,7 @@
     </div>
     
     <script src="/public/assets/jquery/jquery.min.js"></script>
+    <script src="/public/assets/jquery-cookie/jquery.cookie.js"></script>
     <script src="/public/assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="/public/assets/nprogress/nprogress.js"></script>
     <script src="/public/assets/echarts/echarts.min.js"></script>
@@ -210,6 +211,15 @@
         // 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);
 
+    </script>
+
+    <script type="text/javascript">
+    // console.log($.cookie('logInfo'));
+    var obj = JSON.parse($.cookie('logInfo'));
+    $('.aside .profile img').attr('src',obj.tc_avatar);
+    $('.aside .profile h4').html(obj.tc_name);
+    // console.log(obj.tc_name);
+    // console.log(obj.tc_avatar);
     </script>
 </body>
 </html>
