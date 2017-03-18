@@ -30,31 +30,5 @@
         </div>
     </div>
     <?php include('/view/common/script.html') ?>
-    <script type="text/javascript">
-    $('#loginForm').submit(function(){
-        var formData = $(this).serialize();
-        $.ajax({
-            type : 'post',
-            // url : 'http://api.studyit.com/login'
-            url : '/api/login',
-            data : formData,
-            dataType : 'json',
-            success : function(data){
-                if(data.code == 200){
-                    // console.log(data.result);
-                    var logInfo = JSON.stringify(data.result);
-                    // 实现cookie数据的跨页面共享
-                    $.cookie('logInfo',logInfo,{path : '/'});
-                    location.href = '/index/index'
-                }
-            },
-            error : function(data){
-                console.log(data.responseText);
-            }
-        });
-
-        return false;//阻止默认行为
-    });
-    </script>
 </body>
 </html>
