@@ -15,6 +15,8 @@
         if(count($arr) == 2){
             $path = $arr[0];
             $filename = $arr[1];
+        }else{
+            $filename = 'login';
         }
     }else{
         // 表示登录页面
