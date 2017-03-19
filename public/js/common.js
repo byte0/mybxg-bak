@@ -1,5 +1,5 @@
 
-define(['jquery','echarts','cookie'],function($,echarts){
+define(['jquery','echarts','template','cookie'],function($,echarts,template){
     
     // 控制左侧导航菜单的显示和隐藏
     $('.navs ul').prev('a').on('click', function () {
@@ -52,9 +52,23 @@ define(['jquery','echarts','cookie'],function($,echarts){
         });
     });
 
-    // 渲染登录信息
+    // var pathname = location.pathname;
+    // if(pathname.indexOf('login') == -1){
+    //     // 渲染登录信息
+    //     var obj = JSON.parse($.cookie('logInfo'));
+    //     // $('.aside .profile img').attr('src',obj.tc_avatar);
+    //     // $('.aside .profile h4').html(obj.tc_name);
+    //     var html = template('logInfo',obj);
+    //     $('.aside .profile').html(html);
+    // }
+    
     var obj = JSON.parse($.cookie('logInfo'));
-    $('.aside .profile img').attr('src',obj.tc_avatar);
-    $('.aside .profile h4').html(obj.tc_name);
+    var tpl = '<div class="avatar img-circle">'+
+                  '<img src="{{tc_avatar}}">'+
+               '</div>'+
+               '<h4>{{tc_name}}</h4>';
+    var render = template.compile(tpl);
+    var html = render(obj);
+    $('.aside .profile').html(html);
     
 });

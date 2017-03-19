@@ -8,8 +8,7 @@
 <body>
     
     <!-- 侧边栏 -->
-    <!-- <?php echo $_SERVER['PATH_INFO'] ?> -->
-    <?php include('/view/common/aside.html') ?>
+    <?php include('./view/common/aside.html') ?>
     <!-- 主体 -->
     <div class="main">
         <div class="container-fluid">
@@ -58,7 +57,7 @@
     
     <?php include('/view/common/script.html') ?>
     <script>
-        require(['js/echarts']);
+        require(['../js/echarts']);
     </script>
 
 </body>
