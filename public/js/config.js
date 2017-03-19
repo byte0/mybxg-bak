@@ -8,11 +8,14 @@ require.config({
         echarts : 'echarts/echarts.min',
         template : 'artTemplate/template',
         bootstrap : 'bootstrap/js/bootstrap',
-        util : '../js/util'
+        nprogress : 'nprogress/nprogress',
+        util : '../js/util',
+        overlay : '../js/overlay'
     },
     shim : {
-        // bootstrap : {
-        //     deps : ['jquery']
-        // }
+        bootstrap : {
+            // 把bootstrap转成标准模块（依赖于标准的jQuery模块）
+            deps : ['jquery']
+        }
     }
 });

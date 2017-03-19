@@ -1,7 +1,7 @@
 /*
     讲师管理 promise
 */
-define(['jquery','template','util','bootstrap'],function($,template,util){
+define(['jquery','template','util','bootstrap','overlay'],function($,template,util){
     // 设置菜单选中
     util.setMenu(location.pathname);
 

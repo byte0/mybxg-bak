@@ -70,5 +70,7 @@ define(['jquery','echarts','template','cookie'],function($,echarts,template){
     var render = template.compile(tpl);
     var html = render(obj);
     $('.aside .profile').html(html);
+
+    
     
 });
