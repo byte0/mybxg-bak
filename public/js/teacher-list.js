@@ -33,6 +33,29 @@ define(['jquery','template','bootstrap'],function($,template){
                     }
                 });
             });
+            // 启用和注销讲师
+            $('.teacherBtns').find('a:eq(2)').click(function(){
+                var tc_id = $(this).parents('td').attr('data-tcid');
+                var tc_status = $(this).parents('td').attr('data-status');
+                var td = $(this).parents('td');
+                var that = this;
+                $.ajax({
+                    type : 'post',
+                    url : '/api/teacher/handle',
+                    data : {tc_id:tc_id,tc_status:tc_status},
+                    dataType : 'json',
+                    success : function(data){
+                        // 修改状态对应文本
+                        if(data.result.tc_status == 0){
+                            $(that).text('启 用');
+                        }else{
+                            $(that).text('注 销');
+                        }
+                        // 修改浏览器端状态
+                        td.attr('data-status',data.result.tc_status);
+                    }
+                });
+            });
         }
     });
 

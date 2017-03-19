@@ -132,10 +132,16 @@
                     {{/if}}
                 </td>
                 <td>{{item.tc_cellphone}}</td>
-                <td class="teacherBtns" data-tcid = '{{item.tc_id}}'>
+                <td class="teacherBtns" data-tcid = '{{item.tc_id}}' data-status='{{item.tc_status}}'>
                     <a href="javascript:;"class="btn btn-info btn-xs preview">查 看</a>
-                    <a href="./teacher_add.html" class="btn btn-info btn-xs">编 辑</a>
-                    <a href="javascript::" class="btn btn-warning btn-xs">注 销</a>
+                    <a href="javascript:;" class="btn btn-info btn-xs">编 辑</a>
+                    <a href="javascript:;" class="btn btn-warning btn-xs">
+                        {{if item.tc_status == 0}}
+                        启 用
+                        {{else}}
+                        注 销
+                        {{/if}}
+                    </a>
                 </td>
             </tr>
         {{/each}}
