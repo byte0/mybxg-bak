@@ -1,7 +1,10 @@
 /*
     讲师管理 promise
 */
-define(['jquery','template','bootstrap'],function($,template){
+define(['jquery','template','util','bootstrap'],function($,template,util){
+    // 设置菜单选中
+    util.setMenu(location.pathname);
+
     // 实现教师数据列表加载
     $.ajax({
         type : 'get',

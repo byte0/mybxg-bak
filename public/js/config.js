@@ -7,7 +7,8 @@ require.config({
         cookie : 'jquery-cookie/jquery.cookie',
         echarts : 'echarts/echarts.min',
         template : 'artTemplate/template',
-        bootstrap : 'bootstrap/js/bootstrap'
+        bootstrap : 'bootstrap/js/bootstrap',
+        util : '../js/util'
     },
     shim : {
         // bootstrap : {
