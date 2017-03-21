@@ -2,6 +2,8 @@
     添加讲师
 */
 define(['jquery','util','template','datepicker','language','validate','form'],function($,util,template){
+    // 设置左侧导航选中
+    util.setMenu('/teacher/list');
     // 编辑的讲师id
     var tc_id = util.qs('tc_id');
     if(tc_id){
@@ -45,6 +47,12 @@ define(['jquery','util','template','datepicker','language','validate','form'],fu
                         }
                     }
                 });
+            },
+            eachInvalidField : function(){
+                $(this).closest('.form-group').removeClass('has-success').addClass('has-error');
+            },
+            eachValidField : function(){
+                $(this).closest('.form-group').removeClass('has-error').addClass('has-success');
             },
             description : {
                 tcName : {
