@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+    .btn {
+        background-color: orange;
+        text-align: center;
+    }
+    </style>
+    <script type="text/javascript" src="../../jquery.js"></script>
+    <script type="text/javascript" src="./jquery.uploadify.js"></script>
+    <script type="text/javascript">
+    /*
+    文件上传方式：
+    1、直接表单上传，用户体验不好，需要整个页面刷新
+    2、XMLHttpRequest2.0支持文件上传，有浏览器兼容问题
+    3、flash文件上传
+    4、html5文件上传
+    5、利用iframe变通的方式进行文件上传（表象上是异步上传）
+
+    */
+    $(function(){
+        $('#fileId').uploadify({
+            buttonClass : 'btn',
+            buttonText : '文件上传',
+            fileObjName : 'picture',
+            swf : './uploadify.swf',
+            uploader : './file.php',
+            onUploadSuccess : function(file,data){
+                $('#preview').attr('src',data);
+            }
+        });
+    });
+    </script>
+</head>
+<body>
+    <input type="file" id="fileId">
+    <img src="" id="preview">
+</body>
+</html>

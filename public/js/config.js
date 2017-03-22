@@ -12,6 +12,9 @@ require.config({
         datepicker : 'bootstrap-datepicker/js/bootstrap-datepicker',
         language : 'bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min',
         validate : 'validate/jquery-validate',
+        uploadify : 'uploadify/jquery.uploadify',
+        region : 'jquery-region/jquery.region',
+        ckeditor : 'ckeditor/ckeditor',
         form : 'jquery-form/jquery.form',
         util : '../js/util',
         overlay : '../js/overlay'
@@ -25,6 +28,13 @@ require.config({
             deps : ['jquery','datepicker']
         },
         validate : {
+            deps : ['jquery']
+        },
+        uploadify : {
+            deps : ['jquery']
+        },
+        ckeditor : {
+            exports : 'CKEDITOR',
             deps : ['jquery']
         }
     }
