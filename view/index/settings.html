@@ -22,10 +22,11 @@
         </div>
     </div>
     <script type="text/template" id="profileTpl">
-        <form action="" class="form-horizontal">
+        <form action="" class="form-horizontal" id="profileForm">
             <div class="form-group">
                 <label for="" class="col-xs-3 control-label">姓名</label>
                 <div class="col-xs-5">
+                    <input type="hidden" name="tc_id" value="{{tc_id}}">
                     <p class="form-control-static">{{tc_name}}</p>
                 </div>
             </div>
@@ -69,13 +70,13 @@
             <div class="form-group">
                 <label for="" class="col-xs-3 control-label">籍贯</label>
                 <div class="col-xs-5 hometown">
-                    <select id="p" data-id='{{tc_province}}' class="form-control input-sm">
+                    <select name="tc_province" id="p" data-id='{{tc_province}}' class="form-control input-sm">
                         <option>请选择省</option>
                     </select>
-                    <select id="c" data-id='{{tc_city}}'  class="form-control input-sm">
+                    <select name="tc_city" id="c" data-id='{{tc_city}}'  class="form-control input-sm">
                         <option>请选择城市</option>
                     </select>
-                    <select id="d" data-id='{{tc_district}}' class="form-control input-sm">
+                    <select name="tc_district" id="d" data-id='{{tc_district}}' class="form-control input-sm">
                         <option>请选择区/县</option>
                     </select>
                 </div>
