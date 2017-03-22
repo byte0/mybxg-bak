@@ -49,13 +49,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/course/picture">
+                    <a href="/course/picture?cs_id={{cs_id}}">
                     <b>2</b>
                     课程图片
                     </a>
                 </li>
                 <li>
-                    <a href="/course/lesson">
+                    <a href="/course/lesson?cs_id={{cs_id}}">
                     <b>3</b>
                     课时管理
                     </a>
@@ -67,17 +67,18 @@
                 <div class="title">
                     <h5>基本信息 <small>BASIC INFORMATION</small></h5>
                 </div>
-                <form action="" class="basic form-horizontal">
+                <form id="basicForm" class="basic form-horizontal">
                     <div class="form-group">
                         <label for="" class="col-xs-2 control-label">标题</label>
                         <div class="col-xs-8">
+                            <input type="hidden" name="cs_id" value="{{cs_id}}">
                             <input type="text" name="cs_name" class="form-control input-sm" value="{{cs_name}}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="" class="col-xs-2 control-label">课程描述</label>
-                        <div class="col-xs-8 ckeditor">
-                            <textarea name="cs_brief" rows="15" class="form-control input-sm">{{cs_brief}}</textarea>
+                        <div class="col-xs-8">
+                            <textarea id="ckeditor" name="cs_brief" rows="15" class="form-control input-sm">{{cs_brief}}</textarea>
                         </div>
                     </div>
                     <div class="form-group">
@@ -85,7 +86,7 @@
                         <div class="col-xs-8">
                             <select name="cs_tc_id" class="form-control input-sm">
                                 {{each teacher as item}}
-                                    <option value="{{item.tc_id}}">{{item.tc_name}}</option>
+                                    <option {{if item.tc_id == cs_tc_id}}selected{{/if}} value="{{item.tc_id}}">{{item.tc_name}}</option>
                                 {{/each}}
                             </select>
                         </div>
@@ -95,12 +96,12 @@
                         <div class="col-xs-8">
                             <select class="form-control input-sm">
                                 {{each category.top as item}}
-                                    <option value="{{item.cg_id}}">{{item.cg_name}}</option>
+                                    <option {{if item.cg_id == cs_cg_pid}}selected{{/if}} value="{{item.cg_id}}">{{item.cg_name}}</option>
                                 {{/each}}
                             </select>
                             <select name="cs_cg_id" class="form-control input-sm">
                                 {{each category.childs as item}}
-                                    <option value="{{item.cg_id}}">{{item.cg_name}}</option>
+                                    <option {{if item.cg_id == cs_cg_id}}selected{{/if}} value="{{item.cg_id}}">{{item.cg_name}}</option>
                                 {{/each}}
                             </select>
                         </div>
@@ -114,7 +115,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-xs-10">
-                            <a href="./course_add_step2.html" class="btn btn-success btn-sm pull-right">保 存</a>
+                            <input type="submit" class="btn btn-success btn-sm pull-right" value="保 存">
                         </div>                          
                     </div>
                 </form>
