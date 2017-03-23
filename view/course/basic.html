@@ -94,12 +94,12 @@
                     <div class="form-group">
                         <label for="" class="col-xs-2 control-label">分类</label>
                         <div class="col-xs-8">
-                            <select class="form-control input-sm">
+                            <select id="topCategory" class="form-control input-sm">
                                 {{each category.top as item}}
                                     <option {{if item.cg_id == cs_cg_pid}}selected{{/if}} value="{{item.cg_id}}">{{item.cg_name}}</option>
                                 {{/each}}
                             </select>
-                            <select name="cs_cg_id" class="form-control input-sm">
+                            <select id="childCategory" name="cs_cg_id" class="form-control input-sm">
                                 {{each category.childs as item}}
                                     <option {{if item.cg_id == cs_cg_id}}selected{{/if}} value="{{item.cg_id}}">{{item.cg_name}}</option>
                                 {{/each}}
