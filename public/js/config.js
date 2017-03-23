@@ -13,6 +13,7 @@ require.config({
         language : 'bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min',
         validate : 'validate/jquery-validate',
         uploadify : 'uploadify/jquery.uploadify',
+        jcrop : 'jcrop/Jcrop',
         region : 'jquery-region/jquery.region',
         ckeditor : 'ckeditor/ckeditor',
         form : 'jquery-form/jquery.form',
@@ -35,6 +36,9 @@ require.config({
         },
         ckeditor : {
             exports : 'CKEDITOR',
+            deps : ['jquery']
+        },
+        jcrop : {
             deps : ['jquery']
         }
     }
